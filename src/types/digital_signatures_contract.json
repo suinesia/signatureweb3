@@ -1,0 +1,196 @@
+{
+  "version": "0.1.0",
+  "name": "digital_signatures_contract",
+  "instructions": [
+    {
+      "name": "initialize",
+      "accounts": [
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "initStorage",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "initData",
+          "type": {
+            "defined": "Storage"
+          }
+        }
+      ]
+    },
+    {
+      "name": "createSignature",
+      "accounts": [
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "storage",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "signature",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "signerAccount",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "fromAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "toAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "signData",
+          "type": {
+            "defined": "Signature"
+          }
+        }
+      ]
+    },
+    {
+      "name": "signLegalAgreement",
+      "accounts": [
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "signature",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "fromAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "toAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Storage",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "nameStorage",
+            "type": "string"
+          },
+          {
+            "name": "initialized",
+            "type": "bool"
+          },
+          {
+            "name": "counter",
+            "type": "u32"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Signature",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "url",
+            "type": "string"
+          },
+          {
+            "name": "hashVerified",
+            "type": "string"
+          },
+          {
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "name": "signatureAccount",
+            "type": "publicKey"
+          },
+          {
+            "name": "creatorAccount",
+            "type": "publicKey"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "address": "HihBXbXfk1N6gucytEDMcCEVzvs3NgePrgsTRCq7Sdzz"
+  }
+}
